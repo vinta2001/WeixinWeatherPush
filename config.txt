@@ -3,7 +3,7 @@
 # 公众号appId
 "app_id": "wx040bdc568125c031",
 # 公众号appSecret
-"app_secret": "6d51bce3679a88764410afbab22b1d0e",
+"app_secret": "1d5bec996c3b7dc93737380b4dedff3a",
 # 模板消息id
 "template_id": "67IjgoqYO0H8_c7BaekimW7ICvx7yizi1dTXAwegtKs",
 # 接收公众号消息的微信号，如果有多个，需要在[]里用英文逗号间隔，例如["wx1", "wx2"]
