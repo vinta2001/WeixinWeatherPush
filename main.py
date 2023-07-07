@@ -5,15 +5,15 @@ from datetime import datetime, date
 from zhdate import ZhDate
 import sys
 import os
- 
- 
+
+
 def get_color():
     # 获取随机颜色
     get_colors = lambda n: list(map(lambda i: "#" + "%06x" % random.randint(0, 0xFFFFFF), range(n)))
     color_list = get_colors(100)
     return random.choice(color_list)
- 
- 
+
+
 def get_access_token():
     # appId
     app_id = config["app_id"]
@@ -29,8 +29,8 @@ def get_access_token():
         sys.exit(1)
     # print(access_token)
     return access_token
- 
- 
+
+
 def get_weather(region):
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
@@ -59,8 +59,8 @@ def get_weather(region):
     # 风向
     wind_dir = response["now"]["windDir"]
     return weather, temp, wind_dir
- 
- 
+
+
 def get_birthday(birthday, year, today):
     birthday_year = birthday.split("-")[0]
     # 判断是否为农历生日
@@ -78,7 +78,7 @@ def get_birthday(birthday, year, today):
         birthday_day = birthday.day
         # 今年生日
         year_date = date(year, birthday_month, birthday_day)
- 
+
     else:
         # 获取国历生日的今年对应月和日
         birthday_month = int(birthday.split("-")[1])
@@ -100,51 +100,51 @@ def get_birthday(birthday, year, today):
         birth_date = year_date
         birth_day = str(birth_date.__sub__(today)).split(" ")[0]
     return birth_day
- 
- 
+
+
 def get_ciba():
     cookies = {
-    'sajssdk_2015_cross_new_user': '1',
-    '__utma': '183787513.1581383011.1688745359.1688745359.1688745359.1',
-    '__utmc': '183787513',
-    '__utmz': '183787513.1688745359.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)',
-    '__utmt': '1',
-    '__utmb': '183787513.1.10.1688745359',
-    'csrftoken': '0138c003ccb7b7aa43c6e5276bfa7222',
-    '_ga': 'GA1.2.1581383011.1688745359',
-    '_gat': '1',
-    'auth_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjI0NDU3OTM3LCJleHAiOjE2ODk2MDk2ODksImV4cF92MiI6MTY4OTYwOTY4OSwiZGV2aWNlIjoiIiwidXNlcm5hbWUiOiJRcV9iNzFlZDc4MmJjOGFlNGRlIiwiaXNfc3RhZmYiOjAsInNlc3Npb25faWQiOiJkNWVkMzdiMDFjZGUxMWVlYTNkOWUyZWFkMDc3YWU0MyJ9.B9_2ZvZFWjoL1nrBwKQRbAa8czRWqBHOroJsNtTX4tU',
-    'sensorsdata2015jssdkcross': '%7B%22distinct_id%22%3A%22drussp%22%2C%22%24device_id%22%3A%22189311135361159-08d6e2b1a0dc69-26031d51-1327104-18931113537e1c%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%A4%BE%E4%BA%A4%E7%BD%91%E7%AB%99%E6%B5%81%E9%87%8F%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC%22%2C%22%24latest_referrer%22%3A%22https%3A%2F%2Fopen.weixin.qq.com%2F%22%7D%2C%22first_id%22%3A%22189311135361159-08d6e2b1a0dc69-26031d51-1327104-18931113537e1c%22%7D',
-}
+        'sajssdk_2015_cross_new_user': '1',
+        '__utma': '183787513.1581383011.1688745359.1688745359.1688745359.1',
+        '__utmc': '183787513',
+        '__utmz': '183787513.1688745359.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)',
+        '__utmt': '1',
+        '__utmb': '183787513.1.10.1688745359',
+        'csrftoken': '0138c003ccb7b7aa43c6e5276bfa7222',
+        '_ga': 'GA1.2.1581383011.1688745359',
+        '_gat': '1',
+        'auth_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjI0NDU3OTM3LCJleHAiOjE2ODk2MDk2ODksImV4cF92MiI6MTY4OTYwOTY4OSwiZGV2aWNlIjoiIiwidXNlcm5hbWUiOiJRcV9iNzFlZDc4MmJjOGFlNGRlIiwiaXNfc3RhZmYiOjAsInNlc3Npb25faWQiOiJkNWVkMzdiMDFjZGUxMWVlYTNkOWUyZWFkMDc3YWU0MyJ9.B9_2ZvZFWjoL1nrBwKQRbAa8czRWqBHOroJsNtTX4tU',
+        'sensorsdata2015jssdkcross': '%7B%22distinct_id%22%3A%22drussp%22%2C%22%24device_id%22%3A%22189311135361159-08d6e2b1a0dc69-26031d51-1327104-18931113537e1c%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%A4%BE%E4%BA%A4%E7%BD%91%E7%AB%99%E6%B5%81%E9%87%8F%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC%22%2C%22%24latest_referrer%22%3A%22https%3A%2F%2Fopen.weixin.qq.com%2F%22%7D%2C%22first_id%22%3A%22189311135361159-08d6e2b1a0dc69-26031d51-1327104-18931113537e1c%22%7D',
+    }
 
     headers = {
-    'authority': 'apiv3.shanbay.com',
-    'accept': '*/*',
-    'accept-language': 'zh-CN,zh;q=0.9,en;q=0.8',
-    'cache-control': 'no-cache',
-    'content-type': 'application/json',
-    # 'cookie': 'sajssdk_2015_cross_new_user=1; __utma=183787513.1581383011.1688745359.1688745359.1688745359.1; __utmc=183787513; __utmz=183787513.1688745359.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); __utmt=1; __utmb=183787513.1.10.1688745359; csrftoken=0138c003ccb7b7aa43c6e5276bfa7222; _ga=GA1.2.1581383011.1688745359; _gat=1; auth_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjI0NDU3OTM3LCJleHAiOjE2ODk2MDk2ODksImV4cF92MiI6MTY4OTYwOTY4OSwiZGV2aWNlIjoiIiwidXNlcm5hbWUiOiJRcV9iNzFlZDc4MmJjOGFlNGRlIiwiaXNfc3RhZmYiOjAsInNlc3Npb25faWQiOiJkNWVkMzdiMDFjZGUxMWVlYTNkOWUyZWFkMDc3YWU0MyJ9.B9_2ZvZFWjoL1nrBwKQRbAa8czRWqBHOroJsNtTX4tU; sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%22drussp%22%2C%22%24device_id%22%3A%22189311135361159-08d6e2b1a0dc69-26031d51-1327104-18931113537e1c%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%A4%BE%E4%BA%A4%E7%BD%91%E7%AB%99%E6%B5%81%E9%87%8F%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC%22%2C%22%24latest_referrer%22%3A%22https%3A%2F%2Fopen.weixin.qq.com%2F%22%7D%2C%22first_id%22%3A%22189311135361159-08d6e2b1a0dc69-26031d51-1327104-18931113537e1c%22%7D',
-    'origin': 'https://web.shanbay.com',
-    'pragma': 'no-cache',
-    'referer': 'https://web.shanbay.com/',
-    'sec-ch-ua': '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
-    'sec-ch-ua-mobile': '?0',
-    'sec-ch-ua-platform': '"Windows"',
-    'sec-fetch-dest': 'empty',
-    'sec-fetch-mode': 'cors',
-    'sec-fetch-site': 'same-site',
-    'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36',
-    'x-csrftoken': '0138c003ccb7b7aa43c6e5276bfa7222',
-    'x-referrer-app': 'client/web',
-}
+        'authority': 'apiv3.shanbay.com',
+        'accept': '*/*',
+        'accept-language': 'zh-CN,zh;q=0.9,en;q=0.8',
+        'cache-control': 'no-cache',
+        'content-type': 'application/json',
+        # 'cookie': 'sajssdk_2015_cross_new_user=1; __utma=183787513.1581383011.1688745359.1688745359.1688745359.1; __utmc=183787513; __utmz=183787513.1688745359.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); __utmt=1; __utmb=183787513.1.10.1688745359; csrftoken=0138c003ccb7b7aa43c6e5276bfa7222; _ga=GA1.2.1581383011.1688745359; _gat=1; auth_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjI0NDU3OTM3LCJleHAiOjE2ODk2MDk2ODksImV4cF92MiI6MTY4OTYwOTY4OSwiZGV2aWNlIjoiIiwidXNlcm5hbWUiOiJRcV9iNzFlZDc4MmJjOGFlNGRlIiwiaXNfc3RhZmYiOjAsInNlc3Npb25faWQiOiJkNWVkMzdiMDFjZGUxMWVlYTNkOWUyZWFkMDc3YWU0MyJ9.B9_2ZvZFWjoL1nrBwKQRbAa8czRWqBHOroJsNtTX4tU; sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%22drussp%22%2C%22%24device_id%22%3A%22189311135361159-08d6e2b1a0dc69-26031d51-1327104-18931113537e1c%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%A4%BE%E4%BA%A4%E7%BD%91%E7%AB%99%E6%B5%81%E9%87%8F%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC%22%2C%22%24latest_referrer%22%3A%22https%3A%2F%2Fopen.weixin.qq.com%2F%22%7D%2C%22first_id%22%3A%22189311135361159-08d6e2b1a0dc69-26031d51-1327104-18931113537e1c%22%7D',
+        'origin': 'https://web.shanbay.com',
+        'pragma': 'no-cache',
+        'referer': 'https://web.shanbay.com/',
+        'sec-ch-ua': '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
+        'sec-ch-ua-mobile': '?0',
+        'sec-ch-ua-platform': '"Windows"',
+        'sec-fetch-dest': 'empty',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-site': 'same-site',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36',
+        'x-csrftoken': '0138c003ccb7b7aa43c6e5276bfa7222',
+        'x-referrer-app': 'client/web',
+    }
 
-    response = requests.get('https://apiv3.shanbay.com/weapps/dailyquote/quote/', cookies=cookies, headers=headers)
+    response = get('https://apiv3.shanbay.com/weapps/dailyquote/quote/', cookies=cookies, headers=headers)
     data = response.json()
     content = data['content']
     translation = data['translation']
     return content, translation
- 
- 
+
+
 def send_message(to_user, access_token, region_name, weather, temp, wind_dir, note_ch, note_en):
     url = "https://api.weixin.qq.com/cgi-bin/message/template/send?access_token={}".format(access_token)
     week_list = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"]
@@ -230,8 +230,8 @@ def send_message(to_user, access_token, region_name, weather, temp, wind_dir, no
         print("推送消息成功")
     else:
         print(response)
- 
- 
+
+
 if __name__ == "__main__":
     try:
         with open("config.txt", encoding="utf-8") as f:
@@ -244,7 +244,7 @@ if __name__ == "__main__":
         print("推送消息失败，请检查配置文件格式是否正确")
         os.system("pause")
         sys.exit(1)
- 
+
     # 获取accessToken
     accessToken = get_access_token()
     # 接收的用户
