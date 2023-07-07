@@ -103,16 +103,46 @@ def get_birthday(birthday, year, today):
  
  
 def get_ciba():
-    url = "http://open.iciba.com/dsapi/"
+    cookies = {
+    'sajssdk_2015_cross_new_user': '1',
+    '__utma': '183787513.1581383011.1688745359.1688745359.1688745359.1',
+    '__utmc': '183787513',
+    '__utmz': '183787513.1688745359.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)',
+    '__utmt': '1',
+    '__utmb': '183787513.1.10.1688745359',
+    'csrftoken': '0138c003ccb7b7aa43c6e5276bfa7222',
+    '_ga': 'GA1.2.1581383011.1688745359',
+    '_gat': '1',
+    'auth_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjI0NDU3OTM3LCJleHAiOjE2ODk2MDk2ODksImV4cF92MiI6MTY4OTYwOTY4OSwiZGV2aWNlIjoiIiwidXNlcm5hbWUiOiJRcV9iNzFlZDc4MmJjOGFlNGRlIiwiaXNfc3RhZmYiOjAsInNlc3Npb25faWQiOiJkNWVkMzdiMDFjZGUxMWVlYTNkOWUyZWFkMDc3YWU0MyJ9.B9_2ZvZFWjoL1nrBwKQRbAa8czRWqBHOroJsNtTX4tU',
+    'sensorsdata2015jssdkcross': '%7B%22distinct_id%22%3A%22drussp%22%2C%22%24device_id%22%3A%22189311135361159-08d6e2b1a0dc69-26031d51-1327104-18931113537e1c%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%A4%BE%E4%BA%A4%E7%BD%91%E7%AB%99%E6%B5%81%E9%87%8F%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC%22%2C%22%24latest_referrer%22%3A%22https%3A%2F%2Fopen.weixin.qq.com%2F%22%7D%2C%22first_id%22%3A%22189311135361159-08d6e2b1a0dc69-26031d51-1327104-18931113537e1c%22%7D',
+}
+
     headers = {
-        'Content-Type': 'application/json',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
-                      'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'
-    }
-    r = get(url, headers=headers)
-    note_en = r.json()["content"]
-    note_ch = r.json()["note"]
-    return note_ch, note_en
+    'authority': 'apiv3.shanbay.com',
+    'accept': '*/*',
+    'accept-language': 'zh-CN,zh;q=0.9,en;q=0.8',
+    'cache-control': 'no-cache',
+    'content-type': 'application/json',
+    # 'cookie': 'sajssdk_2015_cross_new_user=1; __utma=183787513.1581383011.1688745359.1688745359.1688745359.1; __utmc=183787513; __utmz=183787513.1688745359.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); __utmt=1; __utmb=183787513.1.10.1688745359; csrftoken=0138c003ccb7b7aa43c6e5276bfa7222; _ga=GA1.2.1581383011.1688745359; _gat=1; auth_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjI0NDU3OTM3LCJleHAiOjE2ODk2MDk2ODksImV4cF92MiI6MTY4OTYwOTY4OSwiZGV2aWNlIjoiIiwidXNlcm5hbWUiOiJRcV9iNzFlZDc4MmJjOGFlNGRlIiwiaXNfc3RhZmYiOjAsInNlc3Npb25faWQiOiJkNWVkMzdiMDFjZGUxMWVlYTNkOWUyZWFkMDc3YWU0MyJ9.B9_2ZvZFWjoL1nrBwKQRbAa8czRWqBHOroJsNtTX4tU; sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%22drussp%22%2C%22%24device_id%22%3A%22189311135361159-08d6e2b1a0dc69-26031d51-1327104-18931113537e1c%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%A4%BE%E4%BA%A4%E7%BD%91%E7%AB%99%E6%B5%81%E9%87%8F%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC%22%2C%22%24latest_referrer%22%3A%22https%3A%2F%2Fopen.weixin.qq.com%2F%22%7D%2C%22first_id%22%3A%22189311135361159-08d6e2b1a0dc69-26031d51-1327104-18931113537e1c%22%7D',
+    'origin': 'https://web.shanbay.com',
+    'pragma': 'no-cache',
+    'referer': 'https://web.shanbay.com/',
+    'sec-ch-ua': '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"Windows"',
+    'sec-fetch-dest': 'empty',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'same-site',
+    'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36',
+    'x-csrftoken': '0138c003ccb7b7aa43c6e5276bfa7222',
+    'x-referrer-app': 'client/web',
+}
+
+    response = requests.get('https://apiv3.shanbay.com/weapps/dailyquote/quote/', cookies=cookies, headers=headers)
+    data = response.json()
+    content = data['content']
+    translation = data['translation']
+    return content, translation
  
  
 def send_message(to_user, access_token, region_name, weather, temp, wind_dir, note_ch, note_en):
