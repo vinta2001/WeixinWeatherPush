@@ -14,24 +14,31 @@ https://www.coolapk.com/feed/38579891?shareKey=NGI3ZGZlZTM4MDBjNjMwMzdlM2M~&shar
 
 模板内容如下：
 
-{{date.DATA}} 
+今天是：{{date.DATA}} 
 
-地区：{{region.DATA}} 
+下面开始为宝贝播报{{region.DATA}}的天气(#^.^#) 
+今日天气：{{weather.DATA}} 
+最低气温：{{min_temperature.DATA}} ℃ 
+最高气温：{{max_temperature.DATA}} ℃ 
+当前气温：{{temp.DATA}} ℃ 
+今日风向：{{wind_dir.DATA}} 
 
-天气：{{weather.DATA}} 
+今日穿衣建议：{{tips.DATA}} 
 
-气温：{{temp.DATA}} 
+今日星座运势：
+综合指数:{{total.DATA}}
+财运指数:{{luck.DATA}}
+健康指数:{{health_.DATA}}
+今日概述:{{total_.DATA}}
 
-风向：{{wind_dir.DATA}} 
+今天我们在一起{{love_day.DATA}}天啦 
 
-今天是我们恋爱的第{{love_day.DATA}}天 
+*{{birthday1.DATA}} 
+*{{birthday2.DATA}} 
 
-{{birthday1.DATA}} 
-{{birthday2.DATA}}
+EN: {{note_en.DATA}} 
+CN: {{note_ch.DATA}}
 
-
-{{note_en.DATA}} 
-{{note_ch.DATA}}
 
 
 天气key生成教程
