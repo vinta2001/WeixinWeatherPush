@@ -36,7 +36,7 @@ def get_weather():
         config = eval(f.read())
         # print(config)
         API = config['weather_key']
-    url = 'https://apis.tianapi.com/tianqi/index?key={}&&city=合阳&type=1'.format(API)
+    url = 'https://apis.tianapi.com/tianqi/index?key={}&&city=西安&type=1'.format(API)
     # print(url)
     headers = {'Content-Length': '59',
                'Content-Type': ' application/x-www-form-urlencoded'}
